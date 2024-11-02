@@ -1,0 +1,33 @@
+<?php
+echo "Array<br>";
+
+$a = array("rahul" => 90, "kiran" => 67, "priya" => 48, "yukti" => 100, "pankaj" => 98);
+
+echo "Original associative array:<br>";
+foreach ($a as $name => $marks) {
+    echo "$name => $marks<br>";
+}
+
+echo "<br>";
+
+ksort($a);
+
+echo "Associative array sorted by keys:<br>";
+foreach ($a as $name => $marks) {
+    echo "$name => $marks<br>";
+}
+
+echo "<br>";
+
+$p = array(23, 73, 96, 2, 8, 433, 2);
+
+echo "Original indexed array:<br>";
+var_dump($p);
+
+echo "<br>";
+
+sort($p);
+
+echo "Indexed array sorted in ascending order:<br>";
+var_dump($p);
+?>
