@@ -1,0 +1,16 @@
+<?php
+$age = (int)readline("Enter your age: ");
+$eye = (float)readline("Enter your eyesight power: ");
+
+if ($age < 18) {
+    echo "The person is underage and cannot apply for a license.\n";
+} elseif ($age >= 18 && $age <= 60) {
+    if ($eye < 10) {
+        echo "This person is eligible for a license.\n";
+    } else {
+        echo "This person has weak eyesight and is not eligible.\n";
+    }
+} else {
+    echo "The person is overaged and cannot get the license.\n";
+}
+?>
