@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PHP Type Casting Demonstration</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        .example {
+            border-top: 1px solid #eee;
+            padding: 15px 0;
+        }
+        .example:first-of-type {
+            border-top: none;
+        }
+        h2 {
+            color: #005a9c;
+        }
+        code {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Type Casting Variables</h1>
+
+        <?php
+        $testCases = [
+            [
+                'title' => 'Example 1: Integer to String',
+                'initial_value' => 5,
+                'cast_to' => 'string'
+            ],
+            [
+                'title' => 'Example 2: String to Integer',
+                'initial_value' => "Hello Abhishek",
+                'cast_to' => 'int'
+            ],
+            [
+                'title' => 'Example 3: Array to Float',
+                'initial_value' => ["Red", "Green", "Blue"],
+                'cast_to' => 'float'
+            ],
+            [
+                'title' => 'Example 4: Float to Boolean',
+                'initial_value' => 9.8,
+                'cast_to' => 'bool'
+            ],
+        ];
+
+        foreach ($testCases as $test) {
+            $initialValue = $test['initial_value'];
+            $castType = $test['cast_to'];
+            
+            ob_start();
+            var_dump($initialValue);
+            $initialVarDump = ob_get_clean();
+
+            settype($initialValue, $castType);
+            $castedValue = $initialValue;
+
+            ob_start();
+            var_dump($castedValue);
+            $castedVarDump = ob_get_clean();
+        ?>
+        
+            <div class="example">
+                <h2><?php echo htmlspecialchars($test['title']); ?></h2>
+                <p>
+                    <strong>Initial Value:</strong><br>
+                    <pre><code><?php echo htmlspecialchars($initialVarDump); ?></code></pre>
+                </p>
+                <p>
+                    <strong>After casting to (<?php echo $castType; ?>):</strong><br>
+                    <pre><code><?php echo htmlspecialchars($castedVarDump); ?></code></pre>
+                </p>
+            </div>
+
+        <?php
+        }
+        ?>
+
+    </div>
+
+</body>
+</html>
