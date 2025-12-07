@@ -1,0 +1,17 @@
+<?php
+$arr = array(5, 2, 9, 1);
+
+sort($arr);
+echo "Ascending Order: ";
+foreach($arr as $x){
+    echo $x . " ";
+}
+echo "\n";
+
+rsort($arr);
+echo "Descending Order: ";
+foreach($arr as $x){
+    echo $x . " ";
+}
+echo "\n";
+?>
